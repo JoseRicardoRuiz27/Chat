@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <ul>
+            <li class="mensaje bot">
+                <span>GPT</span>
+                <span>Respuesta del Bot</span>
+            </li>
+
+
+            <li class="mensaje user">
+                <span>Tu</span>
+                <span>Mensaje del Usuario</span>
+            </li>
+
+            <li class="mensaje user">
+                <span>Tu</span>
+                <span>Respuesta del bot a tu pregunta boluda
+                     como vas a preguntar eso pedazo de pelotudo</span>
+            </li>
+        </ul>
+    </main>
+
+    <form>
+        <input placeholder="Escribe tu mensaje">
+        <button>Enviar</button>
+    </form>
+
+    <template id="mensaje-template">
+        <li class="mensaje">
+            <span></span>
+            <span></span>
+        </li>
+    </template>
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
