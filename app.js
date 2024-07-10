@@ -1,6 +1,6 @@
 const form = document.querySelector(`form`);
 const input = document.querySelector(`input`);
-const template = document.querySelector(`#mensaje-template`);
+const template = document.querySelector(`#mensaje_template`);
 const mensaje = document.querySelector(`ul`);
 const conteiner = document.querySelector(`main`);
 const button = document.querySelector(`button`);
