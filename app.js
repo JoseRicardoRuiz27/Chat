@@ -1,13 +1,15 @@
-const form = document.querySelector(`form`);
-const input = document.querySelector(`input`);
-const template = document.querySelector(`#mensaje_template`);
-const mensaje = document.querySelector(`ul`);
-const conteiner = document.querySelector(`main`);
-const button = document.querySelector(`button`);
+//colocamos el simbolo "$" para mostrar que es un elemento del DOM
+
+const $form = document.querySelector(`form`);
+const $input = document.querySelector(`input`);
+const $template = document.querySelector(`#mensaje_template`);
+const $mensaje = document.querySelector(`ul`);
+const $conteiner = document.querySelector(`main`);
+const $button = document.querySelector(`button`);
 
 
 
-form.addEventListener(`submit`, (event) =>{
+$form.addEventListener(`submit`, (event) =>{
     event.preventDefault()
     const mensajeTexto = input.value.trim()
 

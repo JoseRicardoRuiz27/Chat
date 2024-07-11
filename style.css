@@ -32,7 +32,7 @@ ul{
     padding: 4px 9px;
 
 
-    > span:first-child{
+    > span{
         width: 35px;
         height: 35px;
         font-size: 12px;
@@ -43,13 +43,14 @@ ul{
         align-items: center;
         border-radius: 9999px;
     }
-    > span:last-child{
+    > p{
         padding: 4px 7px;
+        margin-top: 0;
     }
     &.user {
         align-self: flex-end;
         align-items: flex-end;
-        span{
+        span, p{
             background: #93deef;
         }
     }
