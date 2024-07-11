@@ -16,6 +16,7 @@ $form.addEventListener(`submit`, (e)=>{
     if(mensajesText != ``){
         $input.value = ``
     }
+    addMessage(mensajesText, `user`)
 })
 
 function addMessage(texto, envio){
@@ -23,6 +24,13 @@ function addMessage(texto, envio){
     const clonHtml = $template.content.cloneNode(true)
 
     const $nuevoMensaje = clonHtml.querySelector(`.mensaje`)
+    
     const $nombre = $nuevoMensaje.querySelector(`span`)
-    const $text = $nuevoMensaje.querySelector(`p`)
+    const $texto = $nuevoMensaje.querySelector(`p`)
+
+    $texto.textContent = texto
+    $nombre.textContent = envio === 'bot' ? `GPT` : `Tu`
+    $nuevoMensaje.classList.add (envio)
+
+    $messages.appendChild($nuevoMensaje)
 }
