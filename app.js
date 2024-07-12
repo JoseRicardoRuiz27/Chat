@@ -12,8 +12,9 @@ const $main = $(`main`);
 const $button = $(`button`);
 const $info = $(`small`)
 
-let mensajeIA = []
-const MODELO_SELECCIONADO = `gemma-2b-it-q4f32_1-MLC-1k`
+let messagesIa = []
+const MODELO_SELECCIONADO = `gemma-2b-it-q4f32_1-MLC`
+
 const motor = await CreateMLCEngine(
     MODELO_SELECCIONADO,
     {
@@ -38,14 +39,16 @@ $form.addEventListener(`submit`, async (e)=>{
     $button.setAttribute(`disabled`, true)
     
     const respuesta = await motor.chat.completions.create({
-        mensajeIA: [
-            ...mensajeIA,{
+        messagesIa: [
+            ...messagesIa,
+            {
                 role: `user`,
                 content: mensajesText
             }
         ]
     })
-    console.log(respuesta);
+    const mensajeBot = respuesta.choices[0].messagesIa
+    addMessage(mensajeBot, `bot`);
 })
 
 function addMessage(texto, envio){
