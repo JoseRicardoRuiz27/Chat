@@ -86,7 +86,7 @@ form{
         &[disabled] {
             background: #a39d9d;
             opacity: .6;
-        }
+            pointer-events: none;
 
         &:hover{
             background: rgb(119, 192, 234);
