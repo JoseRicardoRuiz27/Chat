@@ -1,13 +1,5 @@
 import { CreateMLCEngine } from "https://esm.run/@mlc-ai/web-llm";
-const MODELO_SELECCIONADO = `gemma-2b-it-q4f16_1-MLC-1k`
-const motor = await CreateMLCEngine(
-    MODELO_SELECCIONADO,
-    {
-        initProgressCallback: (info) =>{
-            console.log(`initProgressCallback`, info)
-        }
-    }
-)
+
 
 //colocamos el simbolo "$" para mostrar que es un elemento del DOM
 const $ = elementoDOM => document.querySelector(elementoDOM);
@@ -18,6 +10,20 @@ const $template = $(`#mensaje_template`);
 const $messages = $(`ul`);
 const $main = $(`main`);
 const $button = $(`button`);
+const $info = $(`small`)
+const MODELO_SELECCIONADO = `gemma-2b-it-q4f32_1-MLC-1k`
+const motor = await CreateMLCEngine(
+    MODELO_SELECCIONADO,
+    {
+        initProgressCallback: (info) =>{
+            $info.textContent = `${info.text}%`
+            if (info.progress === 1){
+                $button.removeAttribute(`dosabled`)
+            }
+        }
+    }
+)
+
 
 $form.addEventListener(`submit`, (e)=>{
     e.preventDefault()
