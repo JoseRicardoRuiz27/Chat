@@ -15,6 +15,7 @@ main{
     padding: 7px;
     margin-bottom: 16px;
     overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
 ul{
@@ -37,7 +38,6 @@ ul{
         height: 35px;
         font-size: 12px;
         font-weight: 500;
-        background: #eee;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -55,9 +55,9 @@ ul{
         }
     }
     &.bot{
-        p{
+        span, p{
         align-self: flex-start;
-        background: red;
+        background: rgb(178, 246, 178);
         }
     }
 
@@ -82,6 +82,11 @@ form{
         cursor: pointer;
         padding: 8px;
         transition: background .4s ease;
+
+        &[disabled] {
+            background: #a39d9d;
+            opacity: .6;
+        }
 
         &:hover{
             background: rgb(119, 192, 234);

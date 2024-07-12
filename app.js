@@ -17,6 +17,13 @@ $form.addEventListener(`submit`, (e)=>{
         $input.value = ``
     }
     addMessage(mensajesText, `user`)
+    $button.setAttribute(`disabled`, true)
+    
+    setTimeout(() =>{
+        addMessage(`Hola, aqui tu chat`, `bot`)
+
+        $button.removeAttribute(`disabled`)
+    }, 2000)
 })
 
 function addMessage(texto, envio){
@@ -32,7 +39,7 @@ function addMessage(texto, envio){
     $nombre.textContent = envio === 'bot' ? `GPT` : `Tu`
     $nuevoMensaje.classList.add (envio)
 
-    $main.scrollTop = $main.scrollHeight
-
     $messages.appendChild($nuevoMensaje)
+
+    $main.scrollTop = $main.scrollHeight
 }
