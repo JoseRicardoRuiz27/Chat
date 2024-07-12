@@ -14,7 +14,7 @@ main{
     border-radius: 0 0 10px rgba(0,0,0,0.1px);
     padding: 7px;
     margin-bottom: 16px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 ul{

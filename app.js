@@ -6,7 +6,7 @@ const $form = $(`form`);
 const $input = $(` form input`);
 const $template = $(`#mensaje_template`);
 const $messages = $(`ul`);
-const $conteiner = $(`main`);
+const $main = $(`main`);
 const $button = $(`button`);
 
 $form.addEventListener(`submit`, (e)=>{
@@ -31,6 +31,8 @@ function addMessage(texto, envio){
     $texto.textContent = texto
     $nombre.textContent = envio === 'bot' ? `GPT` : `Tu`
     $nuevoMensaje.classList.add (envio)
+
+    $main.scrollTop = $main.scrollHeight
 
     $messages.appendChild($nuevoMensaje)
 }
