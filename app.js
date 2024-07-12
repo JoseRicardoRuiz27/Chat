@@ -11,6 +11,8 @@ const $messages = $(`ul`);
 const $main = $(`main`);
 const $button = $(`button`);
 const $info = $(`small`)
+
+let mensajeIA = []
 const MODELO_SELECCIONADO = `gemma-2b-it-q4f32_1-MLC-1k`
 const motor = await CreateMLCEngine(
     MODELO_SELECCIONADO,
@@ -18,14 +20,14 @@ const motor = await CreateMLCEngine(
         initProgressCallback: (info) =>{
             $info.textContent = `${info.text}%`
             if (info.progress === 1){
-                $button.removeAttribute(`dosabled`)
+                $button.removeAttribute(`disabled`)
             }
         }
     }
 )
 
 
-$form.addEventListener(`submit`, (e)=>{
+$form.addEventListener(`submit`, async (e)=>{
     e.preventDefault()
     const mensajesText = $input.value.trim()
 
@@ -35,11 +37,15 @@ $form.addEventListener(`submit`, (e)=>{
     addMessage(mensajesText, `user`)
     $button.setAttribute(`disabled`, true)
     
-    setTimeout(() =>{
-        addMessage(`Hola, aqui tu chat`, `bot`)
-
-        $button.removeAttribute(`disabled`)
-    }, 2000)
+    const respuesta = await motor.chat.completions.create({
+        mensajeIA: [
+            ...mensajeIA,{
+                role: `user`,
+                content: mensajesText
+            }
+        ]
+    })
+    console.log(respuesta);
 })
 
 function addMessage(texto, envio){
