@@ -11,9 +11,9 @@ const $button = $(`button`);
 
 $form.addEventListener(`submit`, (e)=>{
     e.preventDefault()
-    const mensajesText = $input.value.trim
+    const mensajesText = $input.value.trim()
 
-    if(mensajesText != ``){
+    if(mensajesText !== ``){
         $input.value = ``
     }
     addMessage(mensajesText, `user`)
